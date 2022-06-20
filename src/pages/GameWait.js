@@ -12,10 +12,11 @@ export default function Home() {
           <section>
             <Image src='/assets/fundoGame.png' layout="fill" className='image' />
           <div className='ContainerClock'>
-            <div className='clock'>
-                <p> 00:11 </p>
-            </div>
+
+          <Image src='/assets/imgs/clock.svg' width={200} height={150} className='clock' />
+          <p className='clockMinutes'>00:10</p>
           </div>
+
           <div className='main'>
             <Image src='/assets/cardfront.png' width={200} height={150} className='cards' />
             <Image src='/assets/cardfront.png' width={200} height={150}  className='cards'/>

@@ -35,17 +35,21 @@ export const GameWaitView = styled.main`
   }
 
   .clock{
-    width: 90px;
-    height: 70px;
-    border-radius: 6px 7px 9px 9px;
-    margin-top: -8px;
-    background-color: white;
-    position:relative;
+
   }
   .ContainerClock{
     display: flex;
     justify-content: center;
+    margin-top: -50px;
 
+
+  }
+  .clockMinutes{
+    margin-top: 2px;
+    font-size: 26px;
+    position: absolute;
+    margin-top: 54px;
+    font-weight: 700;
   }
 
 `;
