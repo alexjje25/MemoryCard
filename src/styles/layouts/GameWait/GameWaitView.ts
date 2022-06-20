@@ -4,8 +4,6 @@ export const GameWaitView = styled.main`
   width:100%;
 
 
-
-
   .image{
     width:1080px;
     height:1920px;
@@ -24,7 +22,6 @@ export const GameWaitView = styled.main`
     background-color: #294A9B;
     color: white;
     margin-top: 10px;
-
   }
   .main{
     display: flex;
@@ -37,8 +34,18 @@ export const GameWaitView = styled.main`
     position:relative;
   }
 
+  .clock{
+    width: 90px;
+    height: 70px;
+    border-radius: 6px 7px 9px 9px;
+    margin-top: -8px;
+    background-color: white;
+    position:relative;
+  }
+  .ContainerClock{
+    display: flex;
+    justify-content: center;
 
-
-
+  }
 
 `;

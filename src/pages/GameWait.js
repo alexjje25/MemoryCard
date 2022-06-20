@@ -11,7 +11,11 @@ export default function Home() {
 
           <section>
             <Image src='/assets/fundoGame.png' layout="fill" className='image' />
-
+          <div className='ContainerClock'>
+            <div className='clock'>
+                <p> 00:11 </p>
+            </div>
+          </div>
           <div className='main'>
             <Image src='/assets/cardfront.png' width={200} height={150} className='cards' />
             <Image src='/assets/cardfront.png' width={200} height={150}  className='cards'/>
