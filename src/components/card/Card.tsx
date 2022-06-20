@@ -1,31 +1,5 @@
-// import React, { useState } from 'react'
-// import Image from 'next/image'
-
 import { CardView, Wrapper, FrontImg, BackImg } from '../../styles/components/card/CardView'
 
-// interface CardInterface {
-//   hover: boolean,
-//   title: string,
-//   value: string,
-//   onClick: (string) => void
-// }
-
-// export default function Card({hover, title, value, onClick}: CardInterface) {
-//   return (
-//     <CardView hover={hover} onClick={(): void => onClick(value)}>
-//       <div className={`flip-container`}>
-//         <div className="flipper">
-//           <div className="front">
-//             <Image src='/assets/cardfront.png' width={200} height={150} className='cards'/>
-//           </div>
-//           <div className="back">
-//             {title}
-//           </div>
-//         </div>
-//       </div>
-//     </CardView>
-//   )
-// }
 import React from "react";
 
 type CardType = {

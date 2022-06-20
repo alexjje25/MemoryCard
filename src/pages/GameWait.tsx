@@ -1,6 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
+import img1 from '../imgs/img1.png'
+import img2 from '../imgs/img1.png'
+import img3 from '../imgs/img1.png'
+import img4 from '../imgs/img1.png'
+import img5 from '../imgs/img1.png'
+import img6 from '../imgs/img1.png'
+import img7 from '../imgs/img1.png'
+import img8 from '../imgs/img1.png'
+import img9 from '../imgs/img1.png'
+import img10 from '../imgs/img1.png'
+import img11 from '../imgs/img1.png'
+import img12 from '../imgs/img1.png'
+import img13 from '../imgs/img1.png'
+
 import Card from '../components/card/Card'
 
 import {
@@ -23,67 +37,13 @@ type CardType = {
 };
 
 export default function Home() {
-  // const [selected, setSelected] = useState({
-  //   value1: '',
-  //   value2: '',
-  //   id1: '',
-  //   id2: ''
-  // })
-  // const [canSelect, setCanSelect] = useState<boolean>(false)
-
-  // const paired = []
-  // const pairedAux = paired
-
-  // const delay = (amount = 4000) => new Promise(resolve => setTimeout(resolve, amount))
-  // const delayClear = (amount = 3000) => new Promise(resolve => setTimeout(resolve, amount))
-
-  // function verifyPairSelected(): void {
-  //   if (selected.value1 !== '' && selected.value2 !== '' && !canSelect) {
-  //     if (selected.value1 === selected.value2) {
-  //       setCanSelect(true)
-  //       handleCanSelect()
-  //     } else if (selected.value1 !== selected.value2) {
-  //       setCanSelect(true)
-  //       handleCanSelect()
-  //     }
-  //   }
-  // }
-
-  // async function clear() {
-  //   await delayClear()
-  //   setSelected({
-  //     value1: '',
-  //     value2: '',
-  //     id1: '',
-  //     id2: ''
-  //   })
-  // }
-
-  // async function handleCanSelect() {
-  //   clear()
-  //   await delay()
-
-  //   setCanSelect(false)
-  // }
-
-  // function handleSelected(): void {
-  //   verifyPairSelected()
-  // }
-
-  // useEffect((): void => {
-  //   handleSelected()
-  //   console.log(paired)
-  // }, [selected])
-
-  const cardsVector: string[] = [
-    'card1',
-    'card2',
-    'card3',
-    'card4',
-    'card5',
-    'card6',
-    'card7',
-    'card8'
+  const cardsVector: any = [
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
   ];
 
   const shuffleArray = (arr: any[]): any[] => {
@@ -98,15 +58,15 @@ export default function Home() {
   [...cardsVector, ...cardsVector].map((card, i) => ({
     id: `card${i}`,
     flipped: false,
-    // backImage: carBack,
-    frontImage: card,
+    backImage: '/assets/cardFront.png',
+    frontImage: `/assets/imgs/img${i+1}.png`,
     clickable: true,
-    // matchingCardId:
-    //   i < card.length ? `card${i + cards.length}` : `card${i - cards.length}`
+    matchingCardId:
+      i < card.length ? `card${i + cardsVector.length}` : `card${i - cardsVector.length}`
   }));
 
-  const timeout = 1000;
   const [cards, setCards] = useState<CardType[]>(shuffleArray(createBoard()));
+  const timeout = 1000;
   const [gameWon, setGameWon] = useState(false);
   const [matchedPairs, setMatchedPairs] = useState(0);
   const [clickedCard, setClickedCard] = useState<undefined | CardType>(
@@ -179,64 +139,17 @@ export default function Home() {
     <GameWaitView>
       <Image src='/assets/fundoGame.png' layout="fill" className='image' />
       <section>
-          {/* <Card title='1' value='1' hover={selected.id1==='11'? true : false} onClick={value =>
-            {
-              if (!canSelect)
-                if (selected.value1==='')
-                  setSelected({...selected, value1: value, id1: value+'1'})
-
-                else if (selected!==='' && )
+        <Container>
+            <Logo alt="logo" />
+            {gameWon &&
+              <div>voce ganhou</div>
             }
-          }/>
-          <Card title='1' value='1' hover={selected.id2==='12'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value2: value, id2: value+'2'})
-          }}/>
-
-          <Card title='2' value='2' hover={selected.id1==='21'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value1: value, id1: value+'1'})
-          }}/>
-          <Card title='2' value='2' hover={selected.id2==='22'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value2: value, id2: value+'2'})
-          }}/>
-
-          <Card title='3' value='3' hover={selected.id1==='31'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value1: value, id1: value+'1'})
-          }}/>
-          <Card title='3' value='3' hover={selected.id2==='32'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value2: value, id2: value+'2'})
-          }}/>
-
-          <Card title='4' value='4' hover={selected.id1==='41'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value1: value, id1: value+'1'})
-          }}/>
-          <Card title='4' value='4' hover={selected.id2==='42'? true : false} onClick={value => {
-            if (!canSelect)
-              setSelected({...selected, value2: value, id2: value+'2'})
-          }}/> */}
-              <Container>
-                <LogoContainer>
-                  <Logo alt="logo" />
-                  <h1>Lucas Saliba</h1>
-                  {gameWon &&
-                    <ContainerButton>
-                      {/* <img alt="yoda" /> */}
-                      <Button type="submit" onClick={refreshPage}>
-                        Jogar de Novo
-                      </Button>
-                    </ContainerButton>}
-                </LogoContainer>
-                <CardsContainer>
-                  {cards.map(card =>
-                    <Card key={card.id} callback={handleCardClick} card={card} />
-                  )}
-                </CardsContainer>
-              </Container>
+          <CardsContainer>
+            {cards.map(card =>
+              <Card key={card.id} callback={handleCardClick} card={card} />
+            )}
+          </CardsContainer>
+        </Container>
       </section>
     </GameWaitView>
   )

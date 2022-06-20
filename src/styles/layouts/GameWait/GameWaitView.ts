@@ -8,27 +8,12 @@ export const GameWaitView = styled.main`
   padding: 30px;
 
   section {
-    display: grid;
 
-    grid-template-columns: 50% 50%;
-
-    flex-wrap: wrap;
   }
 `;
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 100vh;
-  background-color: red;
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 70px 20px;
-  }
+
 `;
 
 export const LogoContainer = styled.div`
@@ -102,6 +87,8 @@ export const Button = styled.button`
 
 export const CardsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-gap: 0.5rem;
+
+  grid-template-columns: 50% 50%;
+
+  flex-wrap: wrap;
 `;
