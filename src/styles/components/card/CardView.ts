@@ -8,8 +8,8 @@ export const CardView = styled.div<{hover: boolean}>`
     transform: ${({hover}) => hover? 'rotateY(180deg)' : null};
   }
   .flip-container, .front, .back {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
   }
 
   .flipper {
@@ -32,8 +32,8 @@ export const CardView = styled.div<{hover: boolean}>`
 
 
 export const Wrapper = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   position: relative;
   perspective: 1000px;
   .front.flipped {

@@ -1,20 +1,24 @@
 import React from 'react'
-import {HomeView} from '../styles/layouts/Home/HomeView'
+import {CheckoutCpfView} from '../styles/layouts/CheckoutCpf/CheckoutCpfView'
 import Image from 'next/image'
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+
+
 
 export default function Home() {
 
+
   return (
-      <HomeView>
+      <CheckoutCpfView>
         <Image src='/assets/fundoCpf.png' layout="fill" className='image' />
         <div className='main'>
         <p className='title'>Por favor informe seu CPF</p>
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        <TextField sx={{width:'50%', backgroundColor: '#0000000F'}} id="outlined-basic"  variant="outlined" />
 
         <button className='btn'>COMEÇAR</button>
-        </div>
-      </HomeView>
+
+
+      </div>
+      </CheckoutCpfView>
     )
 }

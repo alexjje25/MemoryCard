@@ -4,11 +4,12 @@ export const GameWaitView = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #294A9B;
 
 
   .image{
     width:1180px;
-    height:1920px;
+    height:100vh;
     background-size: cover;
 
   }
@@ -29,7 +30,12 @@ export const GameWaitView = styled.main`
 
   .title{
     position:relative;
+    font-size: 30px;
   }
+  h1{
+    font-size: 40px;
+  }
+
 
   .clock{
 
@@ -45,6 +51,11 @@ export const GameWaitView = styled.main`
     position: absolute;
     margin-top: 54px;
     font-weight: 700;
+  }
+  .footer{
+    position: fixed;
+    margin-top: 60px;
+
   }
 `;
 
@@ -118,8 +129,8 @@ export const Button = styled.button`
 
 export const CardsContainer = styled.div`
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 30%;
 
-  grid-template-columns: 30% 30% 30%;
 
-  flex-wrap: wrap;
 `;

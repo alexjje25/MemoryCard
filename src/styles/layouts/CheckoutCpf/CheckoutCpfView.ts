@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeView = styled.main`
+export const CheckoutCpfView = styled.main`
   width:100%;
 
   .image{
@@ -15,15 +15,15 @@ export const HomeView = styled.main`
   }
   .btn{
     position: relative;
-    width: 77%;
-    height: 60px;
+    width: 58%;
+    height: 68px;
     border: none;
     border-radius: 5px 20px 5px;
     background-color: #294A9B;
     color: white;
     font-size: 18px;
     font-weight:800;
-    margin-top: 10px;
+    margin-top: 70px;
     background:linear-gradient(rgba(55, 109, 168, 1), rgba(28, 136, 248, 1));
     cursor: pointer;
     :hover{
@@ -39,12 +39,10 @@ export const HomeView = styled.main`
   }
   .title{
     position:relative;
-    font-size: 20px;
+    font-size: 26px;
     color: rgba(55, 109, 168, 1);
     text-align: center;
     margin-top:-100px;
-  }
-  .teste2{
-    position:absolute;
+    font-weight: 700;
   }
 `;
