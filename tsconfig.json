@@ -19,7 +19,7 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "additional.d.ts", "src/pages/GameWait.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "additional.d.ts", "src/pages/GameWait.jsx", "src/components/card/Card.jsx"],
   "exclude": [
     "node_modules"
   ]
