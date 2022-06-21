@@ -9,18 +9,26 @@ export const HomeView = styled.main`
     background-size: cover;
   }
   .logo{
-    width:809px;
+    width:600px;
     height: 100px;
+
   }
   .btn{
     position: relative;
-    width: 60%;
+    width: 77%;
     height: 60px;
     border: none;
     border-radius: 5px 20px 5px;
     background-color: #294A9B;
     color: white;
+    font-size: 18px;
+    font-weight:800;
     margin-top: 10px;
+    background:linear-gradient(rgba(55, 109, 168, 1), rgba(28, 136, 248, 1));
+    cursor: pointer;
+    :hover{
+      background: linear-gradient(rgba(28, 136, 248, 1), rgba(55, 109, 168, 1));
+    }
   }
   .main{
     display: flex;
@@ -31,5 +39,9 @@ export const HomeView = styled.main`
   }
   .title{
     position:relative;
+    font-size: 20px;
+    color: rgba(55, 109, 168, 1);
+    text-align: center;
+    margin-top:-100px;
   }
 `;

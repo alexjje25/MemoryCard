@@ -8,9 +8,10 @@ export default function Home() {
       <HomeView>
         <Image src='/assets/FUNDO.png' layout="fill" className='image' />
         <div className='main'>
-        <p className='title'>teste</p>
-        <Image src='/assets/logo.png' width={809} height={200} className='logo' />
-        <button className='btn'>JOGO DA MEMÓRIA</button>
+        <p className='title'>VENHA JOGAR E TESTE SEUS CONHECIMENTOS SOBRE</p>
+        <Image src='/assets/logo.png' width={290} height={160} className='logo' />
+      <button className='btn'>JOGO DA MEMÓRIA</button>
+        {/* <Image src='/assets/imgs/BOTÃO.png' width={300} height={80}  /> */}
         </div>
       </HomeView>
     )

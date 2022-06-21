@@ -5,10 +5,46 @@ export const GameWaitView = styled.main`
   align-items: center;
   justify-content: center;
 
-  padding: 30px;
 
-  section {
+  .image{
+    width:1180px;
+    height:1920px;
+    background-size: cover;
 
+  }
+  /* .logo{
+    width:809px;
+    height: 100px;
+  } */
+  .btn{
+    position: relative;
+    width: 60%;
+    height: 60px;
+    border: none;
+    border-radius: 5px 20px 5px;
+    background-color: #294A9B;
+    color: white;
+    margin-top: 10px;
+  }
+
+  .title{
+    position:relative;
+  }
+
+  .clock{
+
+  }
+  .ContainerClock{
+    display: flex;
+    justify-content: center;
+    margin-top: -58px;
+  }
+  .clockMinutes{
+    margin-top: 6px;
+    font-size: 26px;
+    position: absolute;
+    margin-top: 54px;
+    font-weight: 700;
   }
 `;
 
@@ -16,33 +52,28 @@ export const Container = styled.div`
 
 `;
 
-export const LogoContainer = styled.div`
-  flex-direction: column;
-  h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 44px;
-    font-weight: 500;
-    line-height: 52px;
-    text-align: center;
-    color: #d1f4ff;
-    text-shadow: 0px 2px 29px #90d8ef;
-    margin-top: 20px;
-    @media (max-width: 1000px) {
-      font-size: 30px;
-    }
-  }
-  @media (max-width: 1000px) {
-    margin-bottom: 70px;
-  }
-`;
+// export const LogoContainer = styled.div`
+//   flex-direction: column;
+//   h1 {
+//     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+//       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+//     font-size: 44px;
+//     font-weight: 500;
+//     line-height: 52px;
+//     text-align: center;
+//     color: #d1f4ff;
+//     text-shadow: 0px 2px 29px #90d8ef;
+//     margin-top: 20px;
+//     @media (max-width: 1000px) {
+//       font-size: 30px;
+//     }
+//   }
+//   @media (max-width: 1000px) {
+//     margin-bottom: 70px;
+//   }
+// `;
 
-export const Logo = styled.img`
-  width: 400px;
-  @media (max-width: 1000px) {
-    width: 250px;
-  }
-`;
+
 
 export const ContainerButton = styled.div`
   display: flex;
@@ -61,7 +92,7 @@ export const Button = styled.button`
   width: 180px;
   height: 55px;
   margin-top: 70px;
-  position: absolute;
+  position: relative;
   background-color: #dba90d;
   border: none;
   border-radius: 10px;
@@ -88,7 +119,7 @@ export const Button = styled.button`
 export const CardsContainer = styled.div`
   display: grid;
 
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 30% 30% 30%;
 
   flex-wrap: wrap;
 `;

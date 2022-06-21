@@ -104,10 +104,16 @@ export default function Home() {
 
   return (
     <GameWaitView>
-      <Image src='/assets/fundoGame.png' layout="fill" className='image' />
+
       <section>
+
         <Container>
-            <Logo alt="logo" />
+
+        <Image src='/assets/fundoGame.png' layout="fill" className='image' />
+          <div className='ContainerClock'>
+              <Image src='/assets/imgs/clock.svg' width={200} height={150} className='clock' />
+              <p className='clockMinutes'>00:10</p>
+          </div>
             {gameWon &&
               <div>voce ganhou</div>
             }
@@ -117,7 +123,12 @@ export default function Home() {
             )}
           </CardsContainer>
         </Container>
+        <div className='footer'>
+          <Image src='/assets/imgs/footer.png' width={200} height={60} className='clock' />
+
+      </div>
       </section>
+
     </GameWaitView>
   )
 }
