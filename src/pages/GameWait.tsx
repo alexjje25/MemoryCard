@@ -1,25 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Card from '../components/card/Card'
 
 import {
   GameWaitView,
   Container,
-  LogoContainer,
   CardsContainer,
-  Logo,
-  ContainerButton,
-
 } from '../styles/layouts/GameWait/GameWaitView'
 import { shuffleArray } from '../utils/shuffle';
 import { cardsVector, createBoard } from '../utils/board';
-
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-
 
 type CardType = {
   id: string;
@@ -32,17 +26,16 @@ type CardType = {
 };
 
 const style = {
-  position: 'absolute' as 'absolute',
+  position: 'absolute' as const,
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 100,
-  border: 'none',
-  p: 7,
+
+  border: '1px solid hsla(160,90%,220%,0.7)',
+
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
-
 };
 
 export default function Home() {
@@ -58,11 +51,66 @@ export default function Home() {
     undefined
   );
 
+      // We need ref in this, because we are dealing
+    // with JS setInterval to keep track of it and
+    // stop it when needed
+    const Ref = useRef(null);
+
+    // The state for our timer
+    const [timer, setTimer] = useState('00:00:00');
+
+
+    const getTimeRemaining = (e) => {
+        const total: any = Date.parse(e) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+        return {
+            total, hours, minutes, seconds
+        };
+    }
+
+    const startTimer = (e) => {
+        const { total, hours, minutes, seconds }
+                    = getTimeRemaining(e);
+        if (total >= 0) {
+
+            setTimer(
+                (minutes > 9 ? minutes : '0' + minutes) + ':'
+                + (seconds > 9 ? seconds : '0' + seconds)
+            )
+        }
+    }
+
+    const clearTimer = (e) => {
+        setTimer('00:40');
+
+        if (Ref.current) clearInterval(Ref.current);
+        const id = setInterval(() => {
+            startTimer(e);
+        }, 1000)
+        Ref.current = id;
+    }
+
+    const getDeadTime = () => {
+        const deadline = new Date();
+
+        deadline.setSeconds(deadline.getSeconds() + 40);
+        return deadline;
+    }
+
+    useEffect(() => {
+        clearTimer(getDeadTime());
+    }, []);
+
+    const onClickReset = () => {
+        clearTimer(getDeadTime());
+    }
+
   useEffect(
     () => {
-      if (matchedPairs === cards.length / 2) {
+      if (matchedPairs === cards.length / 2 && cards.length != 0) {
         setGameWon(true);
-
       }else{
         setGameWon(false);
       }
@@ -129,20 +177,17 @@ export default function Home() {
     setClickedCard(undefined);
   };
 
-
-  //verificar se todas as cartas foram encontras
+  // verificar se todas as cartas foram encontras
 
   return (
     <GameWaitView>
-
       <section>
-
         <Container>
 
         <Image src='/assets/fundoGame.png' layout="fill" className='image' />
           <div className='ContainerClock'>
               <Image src='/assets/imgs/clock.svg' width={200} height={150} className='clock' />
-              <p className='clockMinutes'>00:10</p>
+              <p className='clockMinutes'>{timer}</p>
           </div>
             {gameWon &&
               <div>voce ganhou</div>
@@ -154,27 +199,25 @@ export default function Home() {
           </CardsContainer>
         </Container>
 
-   <Button onClick={handleOpen}>Open modal</Button>
-      <Modal BackdropProps={{ style: { backgroundColor: "hsla(160,90%,220%,0.7)"} }}
+        {/* <Button onClick={handleOpen}>Open modal</Button> */}
+      <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
         open={gameWon}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <div style={{ outline: 0, display: 'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column', width:'100px' }} >
         <p>{gameWon}</p>
-        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'-50px', }}>PARABÉNS!</h1>
+        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>PARABÉNS!</h1>
         <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
-        <Image src='/assets/imgs/logo2.png' width={600} height={350} />
-        </Box>
+        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        </div>
       </Modal>
 
         <div className='ContainerFooter'>
           <Image src='/assets/imgs/footer.png' width={200} height={61} className='footer' />
-
-      </div>
+        </div>
       </section>
-
     </GameWaitView>
   )
 }

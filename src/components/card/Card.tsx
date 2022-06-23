@@ -2,10 +2,7 @@ import { CardView, Wrapper, FrontImg, BackImg } from '../../styles/components/ca
 
 import React from "react";
 
-interface IProps {
-  onChange: (input: string) => void;
-  keyboardRef: MutableRefObject<Keyboard>;
-}
+
 
 
 type CardType = {
