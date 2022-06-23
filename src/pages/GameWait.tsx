@@ -9,10 +9,17 @@ import {
   CardsContainer,
   Logo,
   ContainerButton,
-  Button
+
 } from '../styles/layouts/GameWait/GameWaitView'
 import { shuffleArray } from '../utils/shuffle';
 import { cardsVector, createBoard } from '../utils/board';
+
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
 
 type CardType = {
   id: string;
@@ -27,14 +34,21 @@ type CardType = {
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
-  left: '40%',
+  left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 170,
+  width: 100,
   border: 'none',
-  p: 30,
+  p: 7,
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+
 };
 
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const [cards, setCards] = useState<CardType[]>([]);
   const timeout = 1000;
@@ -48,6 +62,9 @@ export default function Home() {
     () => {
       if (matchedPairs === cards.length / 2) {
         setGameWon(true);
+
+      }else{
+        setGameWon(false);
       }
     },
     [matchedPairs]
@@ -112,6 +129,9 @@ export default function Home() {
     setClickedCard(undefined);
   };
 
+
+  //verificar se todas as cartas foram encontras
+
   return (
     <GameWaitView>
 
@@ -133,6 +153,22 @@ export default function Home() {
             )}
           </CardsContainer>
         </Container>
+
+        {/* <Button onClick={handleOpen}>Open modal</Button> */}
+      <Modal BackdropProps={{ style: { backgroundColor: "hsla(160,90%,220%,0.7)" } }}
+        open={gameWon}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <p>{gameWon}</p>
+        <h1 className='title'>Parabéns!</h1>
+        <p className='subTitle'>Voce é um especialista</p>
+        <Image src='/assets/logo2.png' width={170} height={80} className='logo' />
+        </Box>
+      </Modal>
+
         <div className='ContainerFooter'>
           <Image src='/assets/imgs/footer.png' width={200} height={61} className='footer' />
 
