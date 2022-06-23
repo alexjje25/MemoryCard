@@ -154,8 +154,8 @@ export default function Home() {
           </CardsContainer>
         </Container>
 
-        {/* <Button onClick={handleOpen}>Open modal</Button> */}
-      <Modal BackdropProps={{ style: { backgroundColor: "hsla(160,90%,220%,0.7)" } }}
+   <Button onClick={handleOpen}>Open modal</Button>
+      <Modal BackdropProps={{ style: { backgroundColor: "hsla(160,90%,220%,0.7)"} }}
         open={gameWon}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -163,9 +163,9 @@ export default function Home() {
       >
         <Box sx={style}>
         <p>{gameWon}</p>
-        <h1 className='title'>Parabéns!</h1>
-        <p className='subTitle'>Voce é um especialista</p>
-        <Image src='/assets/logo2.png' width={170} height={80} className='logo' />
+        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'-50px', }}>PARABÉNS!</h1>
+        <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
+        <Image src='/assets/imgs/logo2.png' width={600} height={350} />
         </Box>
       </Modal>
 
