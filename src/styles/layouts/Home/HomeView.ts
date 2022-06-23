@@ -44,7 +44,4 @@ export const HomeView = styled.main`
     text-align: center;
     margin-top:-100px;
   }
-  .teste2{
-    position:absolute;
-  }
 `;

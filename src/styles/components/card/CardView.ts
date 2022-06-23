@@ -32,8 +32,8 @@ export const CardView = styled.div<{hover: boolean}>`
 
 
 export const Wrapper = styled.div`
-  width: 110px;
-  height: 110px;
+  width: 130px;
+  height: 114px;
   position: relative;
   perspective: 1000px;
   .front.flipped {

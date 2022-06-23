@@ -4,12 +4,11 @@ export const GameWaitView = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #294A9B;
 
 
   .image{
     width:1180px;
-    height:100vh;
+    height:1920px;
     background-size: cover;
 
   }
@@ -30,15 +29,10 @@ export const GameWaitView = styled.main`
 
   .title{
     position:relative;
-    font-size: 30px;
   }
-  h1{
-    font-size: 40px;
-  }
-
 
   .clock{
-
+    position: fixed;
   }
   .ContainerClock{
     display: flex;
@@ -53,8 +47,23 @@ export const GameWaitView = styled.main`
     font-weight: 700;
   }
   .footer{
+
+    justify-self: center;
+
+    position:absolute;
+
+  }
+  .ContainerFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
-    margin-top: 60px;
+    bottom: 0;
+    margin-left: 93px;
+    transform: translateY(calc(5px));
+
+
+
 
   }
 `;
@@ -129,8 +138,8 @@ export const Button = styled.button`
 
 export const CardsContainer = styled.div`
   display: grid;
+
   grid-template-columns: 1fr 1fr 1fr;
-  width: 30%;
 
 
 `;
