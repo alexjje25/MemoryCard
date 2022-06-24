@@ -95,9 +95,17 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 40);
+        deadline.setSeconds(deadline.getSeconds() + 10);
         return deadline;
     }
+
+
+      useEffect(() => {
+        if (timer === '00:00' ){
+          setOpen(true)
+        }
+    }, [timer]);
+
 
     useEffect(() => {
         clearTimer(getDeadTime());
@@ -210,6 +218,20 @@ export default function Home() {
         <p>{gameWon}</p>
         <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>PARABÉNS!</h1>
         <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
+        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        </div>
+      </Modal>
+
+      <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div style={{ outline: 0, display: 'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column', width:'100px' }} >
+        <p>{gameWon}</p>
+        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>TEMPO ESGOTADO!</h1>
+        <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}> VOLTE AMANHÃ </p>
         <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
         </div>
       </Modal>

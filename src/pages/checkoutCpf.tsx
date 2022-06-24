@@ -12,8 +12,8 @@ export default function Home() {
         <Image src='/assets/fundoCpf.png' layout="fill" className='image' />
         <div className='main'>
         <p className='title'>POR FAVOR, INFORME SEU CPF</p>
-        <TextField sx={{background:'#e8e3e3', border: 'none', width:'50%' }} id="outlined-basic"  variant="outlined" />
-
+        {/* <TextField  sx={{background:'#e8e3e3',  width:'60%', minHeight:10}} id="outlined-basic"  variant="outlined" /> */}
+        <input style={{background:'#F3F3F3' , position:'relative', border:'none', width:'57%', height:'40px',borderRadius:'4px', }}type="text" />
         <button onClick={() => router.push('/GameWait')} className='btn'>COMEÇAR</button>
         </div>
       </CpfView>

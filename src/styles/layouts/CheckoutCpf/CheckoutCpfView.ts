@@ -45,4 +45,9 @@ export const CheckoutCpfView = styled.main`
     margin-top:-100px;
     font-weight: 700;
   }
+  input{
+    background-color: #294A9B;
+    position:relative;
+
+  }
 `;
