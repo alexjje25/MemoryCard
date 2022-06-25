@@ -32,7 +32,7 @@ export const HomeView = styled.main`
   border: none;
   cursor: pointer;
   position: relative;
-    margin-top:20px;
+    margin-top:10px;
   color: #FFFFFF;
   margin-left: 10px;
 
