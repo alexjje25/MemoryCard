@@ -15,18 +15,18 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-type CardType = {
-  id: string;
-  flipped: boolean;
-  backImage: string;
-  frontImage: string;
-  clickable: boolean;
-  matchingCardId: string;
-  matchCode: string;
-};
+// type CardType = {
+//   id: string;
+//   flipped: boolean;
+//   backImage: string;
+//   frontImage: string;
+//   clickable: boolean;
+//   matchingCardId: string;
+//   matchCode: string;
+// };
 
 const style = {
-  position: 'absolute' as const,
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
@@ -43,11 +43,11 @@ export default function Home() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [cards, setCards] = useState<CardType[]>([]);
+  const [cards, setCards] = useState([]);
   const timeout = 1000;
   const [gameWon, setGameWon] = useState(false);
   const [matchedPairs, setMatchedPairs] = useState(0);
-  const [clickedCard, setClickedCard] = useState<undefined | CardType>(
+  const [clickedCard, setClickedCard] = useState(
     undefined
   );
 
@@ -63,7 +63,7 @@ export default function Home() {
     const [startGameCount, setStartGameCount] = useState(3)
 
     const getTimeRemaining = (e) => {
-        const total: any = Date.parse(e) - Date.parse(new Date());
+        const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
         const hours = Math.floor((total / 1000 / 60 / 60) % 24);
@@ -153,7 +153,7 @@ console.log(startGameCount)
     window.location.reload();
   }
 
-  const handleCardClick = (currentClickedCard: CardType) => {
+  const handleCardClick = (currentClickedCard) => {
     //Virar carta
     setCards(prev =>
       prev.map(

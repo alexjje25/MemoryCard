@@ -31,6 +31,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslit": "^6.0.0",
     "faker": "5.5.3",
+    "firebase": "^9.8.4",
     "install": "^0.13.0",
     "next": "12.1.6",
     "npm": "^8.10.0",
