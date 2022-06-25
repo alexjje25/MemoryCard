@@ -15,24 +15,24 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-type CardType = {
-  id: string;
-  flipped: boolean;
-  backImage: string;
-  frontImage: string;
-  clickable: boolean;
-  matchingCardId: string;
-  matchCode: string;
-};
+// type CardType = {
+//   id: string;
+//   flipped: boolean;
+//   backImage: string;
+//   frontImage: string;
+//   clickable: boolean;
+//   matchingCardId: string;
+//   matchCode: string;
+// };
 
 const style = {
-  position: 'absolute' as const,
+  position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 100,
-  border: 'none',
-  p: 7,
+
+  border: '1px solid hsla(160,90%,220%,0.7)',
+
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
@@ -43,11 +43,11 @@ export default function Home() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [cards, setCards] = useState<CardType[]>([]);
+  const [cards, setCards] = useState([]);
   const timeout = 1000;
   const [gameWon, setGameWon] = useState(false);
   const [matchedPairs, setMatchedPairs] = useState(0);
-  const [clickedCard, setClickedCard] = useState<undefined | CardType>(
+  const [clickedCard, setClickedCard] = useState(
     undefined
   );
 
@@ -61,7 +61,7 @@ export default function Home() {
 
 
     const getTimeRemaining = (e) => {
-        const total: any = Date.parse(e) - Date.parse(new Date());
+        const total = Date.parse(e) - Date.parse(new Date());
         const seconds = Math.floor((total / 1000) % 60);
         const minutes = Math.floor((total / 1000 / 60) % 60);
         const hours = Math.floor((total / 1000 / 60 / 60) % 24);
@@ -83,7 +83,7 @@ export default function Home() {
     }
 
     const clearTimer = (e) => {
-        setTimer('00:30');
+        setTimer('00:40');
 
         if (Ref.current) clearInterval(Ref.current);
         const id = setInterval(() => {
@@ -95,9 +95,17 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 30);
+        deadline.setSeconds(deadline.getSeconds() + 10);
         return deadline;
     }
+
+
+      useEffect(() => {
+        if (timer === '00:00' ){
+          setOpen(true)
+        }
+    }, [timer]);
+
 
     useEffect(() => {
         clearTimer(getDeadTime());
@@ -126,7 +134,7 @@ export default function Home() {
     window.location.reload();
   }
 
-  const handleCardClick = (currentClickedCard: CardType) => {
+  const handleCardClick = (currentClickedCard) => {
     //Virar carta
     setCards(prev =>
       prev.map(
@@ -200,17 +208,32 @@ export default function Home() {
         </Container>
 
         {/* <Button onClick={handleOpen}>Open modal</Button> */}
-      <Modal style={{border: 'none', outline: 0}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none'}}}
+      <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
         open={gameWon}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} style={{border: 'none', outline: 0}}>
-        <h1 className='title'>Parabéns!</h1>
-        <p className='subTitle'>Voce é um especialista</p>
-        <Image src='/assets/logo2.png' width={170} height={80} className='logo' />
-        </Box>
+        <div style={{ outline: 0, display: 'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column', width:'100px' }} >
+        <p>{gameWon}</p>
+        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>PARABÉNS!</h1>
+        <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
+        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        </div>
+      </Modal>
+
+      <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div style={{ outline: 0, display: 'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column', width:'100px' }} >
+        <p>{gameWon}</p>
+        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>TEMPO ESGOTADO!</h1>
+        <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}> VOLTE AMANHÃ </p>
+        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        </div>
       </Modal>
 
         <div className='ContainerFooter'>

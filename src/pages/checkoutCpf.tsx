@@ -4,8 +4,19 @@ import Image from 'next/image'
 import TextField from '@mui/material/TextField';
 import { useRouter } from 'next/router'
 
+import Snackbar from '@mui/material/Snackbar'
+import MuiAlert, { AlertProps } from '@mui/material/Alert'
+
 import { initializeApp } from "firebase/app";
-import { Database, getDatabase, ref, set } from "firebase/database";
+import { Database, getDatabase, ref, set, onValue } from "firebase/database";
+import { datatype } from 'faker/locale/zh_TW';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
+})
 
 const firebaseConfig = {
   apiKey: "AIzaSyDAynsVJ_okW1t0gVVSt7yL-s_XSv3JyPI",
@@ -26,16 +37,63 @@ export default function Home() {
   const db = getDatabase(app);
 
   const [cpf, setCpf] = useState('')
+  const [data, setData] = useState('')
+
+  const [openSnackError, setOpenSnackError] = useState<boolean>(false)
+
+  const currentTime = `${new Date().getMonth() + 1}/${new Date().getDate()}`
+
+  const handleCloseSnack = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnackError(false)
+  }
 
   function writeUserData(cpf) {
     set(ref(db, cpf), {
-      cpf
+      cpf,
+      created_at: `${new Date().getDate()}/${new Date().getMonth() + 1}`
     });
-    console.log(db)
+  }
+
+  function readUserData() {
+    const starCountRef = ref(db, '/');
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      setData(data);
+    });
+  }
+
+  async function verifyIfExist() {
+    // console.log(data[cpf].created_at, currentTime)
+    if (data[cpf]?.created_at === currentTime) {
+      setOpenSnackError(true)
+    } else {
+      writeUserData(cpf)
+      router.push('/GameWait')
+    }
   }
 
   return (
       <CpfView>
+        <Snackbar
+          open={openSnackError}
+          autoHideDuration={4000}
+          onClose={handleCloseSnack}
+        >
+          <Alert
+            onClose={handleCloseSnack}
+            severity="error"
+            sx={{ width: '100%' }}
+          >
+            já cadastrado!
+          </Alert>
+        </Snackbar>
         <Image src='/assets/fundoCpf.png' layout="fill" className='image' />
         <div className='main'>
         <p className='title'>POR FAVOR, INFORME SEU CPF</p>
@@ -48,10 +106,14 @@ export default function Home() {
           }
         </ul>
         <button onClick={() => {
-          // router.push('/GameWait')
-          writeUserData(cpf)
+          readUserData()
+          verifyIfExist()
         }} className='btn'>COMEÇAR</button>
         </div>
       </CpfView>
     )
 }
+function postElement(postElement: any, data: any) {
+  throw new Error('Function not implemented.');
+}
+
