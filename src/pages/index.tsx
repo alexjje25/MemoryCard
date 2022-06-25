@@ -48,7 +48,7 @@ export default function Home() {
         <Image src='/assets/FUNDO.png' layout="fill" className='image' />
         <div className='main'>
         <p data-aos="fade-bottom" className='title'>VENHA JOGAR <br />E TESTE SEUS <br /> CONHECIMENTOS <br /> SOBRE </p>
-        <Image data-aos="fade-left" style={{marginTop:'0px'}}src='/assets/logo.png' width={200} height={80} /> <br/>
+        <Image data-aos="fade-left"src='/assets/logo.png' style={{marginLeft:'10px',position:'relative'}} width={200} height={80} /> <br/>
     <button data-aos="fade-right" onClick={() => router.push('/checkoutCpf')} className='btn'>   <p className='btntitle'>JOGO DA MEMÓRIA</p> </button>
 
 

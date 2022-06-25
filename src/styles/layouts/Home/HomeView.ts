@@ -18,7 +18,7 @@ export const HomeView = styled.main`
   }
   .btn{
     width: 70%;
-  height:100%;
+  height: 60px;
   min-height: 4rem;
   border-radius: 8px;
   background: rgb(2,0,36);
@@ -32,8 +32,9 @@ export const HomeView = styled.main`
   border: none;
   cursor: pointer;
   position: relative;
-
+    margin-top:20px;
   color: #FFFFFF;
+  margin-left: 10px;
 
     :hover{
       background: linear-gradient(rgba(28, 136, 248, 1), rgba(55, 109, 168, 1));
@@ -42,6 +43,8 @@ export const HomeView = styled.main`
 
   .btntitle{
     display:inline;
+    font-size: 16px;
+
   }
 
   .main{
@@ -49,11 +52,12 @@ export const HomeView = styled.main`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 18rem;
+    margin-top: 16rem;
+    width:100%;
   }
   .title{
     background-color: red;
-    font-size: 30px;
+    font-size: 26px;
   /* Create the gradient. */
   background-image: linear-gradient(45deg, #4EA5E1, #2A4B9C);
     font-weight: 600;
@@ -70,6 +74,7 @@ export const HomeView = styled.main`
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
   text-align: center;
+  margin-top:-120px;
   }
 
 
