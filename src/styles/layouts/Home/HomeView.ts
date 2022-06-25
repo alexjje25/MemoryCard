@@ -13,27 +13,37 @@ export const HomeView = styled.main`
   .logo{
     width:600px;
     height: 100px;
-    margin-top: -50px;
+    margin-top: -90px;
 
   }
   .btn{
-    position: relative;
-    width: 60%;
-    height: 60px;
-    border: none;
-    border-radius: 5px 20px 5px;
-    background-color: #294A9B;
-    color: white;
-    font-size: 18px;
-    font-weight:800;
-    margin-top: 0px;
-    margin-left: -21px;
-    background:linear-gradient(rgba(55, 109, 168, 1), rgba(28, 136, 248, 1));
-    cursor: pointer;
+    width: 70%;
+  height:100%;
+  min-height: 4rem;
+  border-radius: 8px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, #294A9B 0%,rgba(28, 136, 248, 1) 35%, rgba(100, 136, 248, 1) 100%);
+    border-radius: 0px 40px 0px 30px;
+  font-family: 'Nunito Sans';
+  font-weight: 700;
+  font-size: calc(99.98% + 10px);
+  line-height: 44px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  color: #FFFFFF;
+
     :hover{
       background: linear-gradient(rgba(28, 136, 248, 1), rgba(55, 109, 168, 1));
     }
   }
+
+  .btntitle{
+    display:inline;
+  }
+
   .main{
     display: flex;
     justify-content: center;
@@ -42,12 +52,29 @@ export const HomeView = styled.main`
     margin-top: 18rem;
   }
   .title{
-    position:relative;
+    background-color: red;
     font-size: 30px;
-    color: rgba(55, 109, 168, 1);
-    text-align: center;
-    margin-top:-100px;
-    font-family: Khula;
-    font-weight: 800;
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #4EA5E1, #2A4B9C);
+    font-weight: 600;
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+    font-family: 'Poppins';
+    margin-top: -80px;
+    margin-left: 50px;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  text-align: center;
   }
+
+
+  .lomotif{
+    position: fixed;
+  }
+
 `;

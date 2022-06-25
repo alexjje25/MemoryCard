@@ -14,7 +14,7 @@ export default function Home() {
         <p className='title'>POR FAVOR, INFORME SEU CPF</p>
         {/* <TextField  sx={{background:'#e8e3e3',  width:'60%', minHeight:10}} id="outlined-basic"  variant="outlined" /> */}
         <input style={{background:'#F3F3F3' , position:'relative', border:'none', width:'57%', height:'40px',borderRadius:'4px', }}type="text" />
-        <button onClick={() => router.push('/GameWait')} className='btn'>COMEÇAR</button>
+        <button data-aos="fade-right" onClick={() => router.push('/checkoutCpf')} className='btn'>   <p className='btntitle'>COMEÇAR</p> </button>
         </div>
       </CpfView>
     )

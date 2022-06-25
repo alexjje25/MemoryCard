@@ -39,6 +39,8 @@
     "react-calendar": "^3.7.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.3.1",
+    "react-lottie": "^1.2.3",
+    "react-lottie-player": "^1.4.3",
     "react-simple-keyboard": "^3.4.159",
     "simple-keyboard": "^3.4.117",
     "styled-components": "^5.3.5"

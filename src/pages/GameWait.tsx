@@ -58,7 +58,9 @@ export default function Home() {
 
     // The state for our timer
     const [timer, setTimer] = useState('00:00:00');
+    const [timer2, setTimer2] = useState('00:00:00');
 
+    const [startGameCount, setStartGameCount] = useState(3)
 
     const getTimeRemaining = (e) => {
         const total: any = Date.parse(e) - Date.parse(new Date());
@@ -82,6 +84,8 @@ export default function Home() {
         }
     }
 
+
+
     const clearTimer = (e) => {
         setTimer('00:40');
 
@@ -99,6 +103,19 @@ export default function Home() {
         return deadline;
     }
 
+    function startGame() {
+      setTimeout(() => {
+        setStartGameCount(startGameCount -  1)
+
+      }, 1000);
+    }
+console.log(startGameCount)
+
+    useEffect(() => {
+     startGame()
+  }, [startGameCount]);
+
+
 
       useEffect(() => {
         if (timer === '00:00' ){
@@ -114,6 +131,8 @@ export default function Home() {
     const onClickReset = () => {
         clearTimer(getDeadTime());
     }
+
+
 
   useEffect(
     () => {
@@ -196,6 +215,7 @@ export default function Home() {
           <div className='ContainerClock'>
               <Image src='/assets/imgs/clock.svg' width={200} height={150} className='clock' />
               <p className='clockMinutes'>{timer}</p>
+              <p>{startGameCount}</p>
           </div>
             {gameWon &&
               <div>voce ganhou</div>

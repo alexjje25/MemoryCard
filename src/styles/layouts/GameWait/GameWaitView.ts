@@ -6,6 +6,7 @@ export const GameWaitView = styled.main`
   justify-content: center;
 
 
+
   .image{
     width:1180px;
     height:1920px;
@@ -66,6 +67,8 @@ export const GameWaitView = styled.main`
 
 
   }
+
+
 `;
 
 export const Container = styled.div`
@@ -139,7 +142,6 @@ export const Button = styled.button`
 export const CardsContainer = styled.div`
   display: grid;
 
-  grid-template-columns: 1fr 1fr 1fr;
-
+  grid-template-columns: 105px 105px 130px;
 
 `;
