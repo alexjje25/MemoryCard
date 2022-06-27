@@ -97,7 +97,7 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 40);
+        deadline.setSeconds(deadline.getSeconds() + 5);
         return deadline;
     }
 
@@ -131,13 +131,16 @@ export default function Home() {
 
   useEffect(
     () => {
-      if (matchedPairs === cards.length / 2 && cards.length != 0) {
-        setGameWon(true)
-        window.location.href = "/"
+      setTimeout(() => {
+        if (matchedPairs === cards.length / 2 && cards.length != 0) {
+          setGameWon(true)
+          window.location.href = "/"
 
-      }else{
-        setGameWon(false);
-      }
+        }else{
+          setGameWon(false);
+        }
+      },5000);
+
     },
     [matchedPairs]
   );

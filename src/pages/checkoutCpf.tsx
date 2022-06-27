@@ -108,7 +108,7 @@ export default function Home() {
         <Image src='/assets/fundoCpf.png' layout="fill" className='image' />
         <div className='main'>
         <p style={{fontSize:'40px'}} className='title'>POR FAVOR, INFORME SEU CPF</p>
-        <TextField type='number' inputProps={{style: {fontSize: 40}}} sx={{background:'#e8e3e3', border: 'none', width:'100%',  }} id="outlined-basic" onChange={value => setCpf(value.target.value)} variant="outlined" />
+        <TextField type='number'  inputProps={{style: {fontSize: 40}}} sx={{background:'#e8e3e3', border: 'none', width:'100%', max:'4'  }} id="outlined-basic" onChange={value => setCpf(value.target.value)} variant="outlined" />
         <ul>
           {
             // db.data.map((value, index) => {
