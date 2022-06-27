@@ -60,7 +60,7 @@ export default function Home() {
     const [timer, setTimer] = useState('00:00:00');
     const [timer2, setTimer2] = useState('00:00:00');
 
-    const [startGameCount, setStartGameCount] = useState(3)
+    const [startGameCount, setStartGameCount] = useState(5)
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -233,7 +233,7 @@ export default function Home() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <h1 style={{color:'white', fontSize:'50px', fontFamily: 'Khula'}}>{startGameCount}</h1>
+        <h1 style={{color:'white', fontSize:'70px', fontFamily: 'Khula'}}>{startGameCount}</h1>
       </Modal>
 
       <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
