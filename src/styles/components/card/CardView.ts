@@ -53,6 +53,10 @@ const sharedStyles = css`
   backface-visibility: hidden;
   cursor: pointer;
   transform-style: preserve-3d;
+  @media only screen and (max-width: 1920px) {
+    width: 20vh;
+    height: 20vh;
+  }
 `;
 
 export const FrontImg =

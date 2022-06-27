@@ -107,7 +107,7 @@ export default function Home() {
         <Image src='/assets/fundoCpf.png' layout="fill" className='image' />
         <div className='main'>
         <p className='title'>POR FAVOR, INFORME SEU CPF</p>
-        <TextField sx={{background:'#e8e3e3', border: 'none', width:'50%' }} id="outlined-basic" onChange={value => setCpf(value.target.value)} variant="outlined" />
+        <TextField sx={{background:'#e8e3e3', border: 'none', width:'100%' }} id="outlined-basic" onChange={value => setCpf(value.target.value)} variant="outlined" />
         <ul>
           {
             // db.data.map((value, index) => {
