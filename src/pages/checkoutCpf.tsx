@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {CpfView} from '../styles/layouts/CPF/cpfView'
 import Image from 'next/image'
 import TextField from '@mui/material/TextField';
@@ -10,6 +10,7 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert'
 import { initializeApp } from "firebase/app";
 import { Database, getDatabase, ref, set, onValue } from "firebase/database";
 import { datatype } from 'faker/locale/zh_TW';
+import { FormControlUnstyledContext } from '@mui/base';
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -41,7 +42,7 @@ export default function Home() {
 
   const [openSnackError, setOpenSnackError] = useState<boolean>(false)
 
-  const currentTime = `${new Date().getMonth() + 1}/${new Date().getDate()}`
+  const currentTime = `${new Date().getDate()}/${new Date().getMonth() + 1}`
 
   const handleCloseSnack = (
     event?: React.SyntheticEvent | Event,
@@ -63,7 +64,7 @@ export default function Home() {
 
   function readUserData() {
     const starCountRef = ref(db, '/');
-    onValue(starCountRef, (snapshot) => {
+    onValue(starCountRef, async (snapshot) => {
       const data = snapshot.val();
       setData(data);
     });
@@ -71,13 +72,22 @@ export default function Home() {
 
   async function verifyIfExist() {
     // console.log(data[cpf].created_at, currentTime)
-    if (data[cpf]?.created_at === currentTime) {
-      setOpenSnackError(true)
+    if (data[cpf]) {
+      if (data[cpf].created_at === currentTime) {
+        setOpenSnackError(true)
+      } else {
+        writeUserData(cpf)
+        router.push('/GameWait')
+      }
     } else {
       writeUserData(cpf)
       router.push('/GameWait')
     }
   }
+
+  useEffect(() => {
+    readUserData()
+  }, [])
 
   return (
       <CpfView>
