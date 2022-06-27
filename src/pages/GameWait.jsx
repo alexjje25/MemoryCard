@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Card from '../components/card/Card'
+import Logo from './imageModal.png'
 
 import {
   GameWaitView,
@@ -96,7 +97,7 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 40);
+        deadline.setSeconds(deadline.getSeconds() + 50);
         return deadline;
     }
 
@@ -241,9 +242,9 @@ export default function Home() {
       >
         <div style={{ outline: 0, display: 'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column', width:'100px' }} >
         <p>{gameWon}</p>
-        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>PARABÉNS!</h1>
-        <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
-        <Image src='/assets/imgs/logo2.png' width={500} height={300}/>
+        <h1 style={{color:'#001990', fontSize:'100px', fontWeight: '600', marginLeft:'0', textAlign:'center', fontFamily:'Poppins' }}>PARABÉNS!</h1>
+        <p style={{color:'#001990', fontSize:'50px', fontWeight: '500', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px',fontFamily:'Poppins', marginTop:'-70px' }}>VOCE É UM ESPECIALISTA</p>
+        <img src='/assets/logo.png' width={600} height={200}/>
         </div>
       </Modal>
 
@@ -255,9 +256,9 @@ export default function Home() {
       >
         <div style={{ outline: 0, display: 'flex', justifyContent:'center', alignItems:'center', flexDirection: 'column', width:'100px' }} >
         <p>{gameWon}</p>
-        <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>TEMPO ESGOTADO!</h1>
-        <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}> VOLTE AMANHÃ </p>
-        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        <h1 style={{color:'#001990', fontSize:'100px', fontWeight: '600', marginLeft:'0', textAlign:'center', fontFamily:'Poppins' }}>TEMPO ESGOTADO!</h1>
+       <p style={{color:'#001990', fontSize:'50px', fontWeight: '500', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px',fontFamily:'Poppins', marginTop:'-70px' }}> VOLTE AMANHÃ </p>
+
         </div>
       </Modal>
 
