@@ -5,7 +5,14 @@ export const GameWaitView = styled.main`
   align-items: center;
   justify-content: center;
 
+  section {
+    width: 100%;
+    height: 100%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .image{
     width:1180px;
@@ -61,16 +68,19 @@ export const GameWaitView = styled.main`
     bottom: 0;
     margin-left: 78px;
     transform: translateY(calc(6px));
-
-
-
-
   }
-
-
 `;
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  background-color: red;
 
 `;
 
@@ -140,7 +150,12 @@ export const Button = styled.button`
 
 export const CardsContainer = styled.div`
   display: grid;
+  justify-content: center;
+  align-items: center;
 
-  grid-template-columns: 113px 113px 130px;
+  max-width: 100vw;
 
+  max-height: 100vh;
+
+  grid-template-columns: 10% 10% 10%;
 `;
