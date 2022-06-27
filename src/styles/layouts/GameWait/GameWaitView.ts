@@ -155,7 +155,12 @@ export const CardsContainer = styled.div`
 
   max-width: 100vw;
 
-  max-height: 100vh;
+  max-height: 90vh;
+  min-height: 90vh;
 
   grid-template-columns: 10% 10% 10%;
+
+  @media only screen and (min-height: 1920px) {
+    grid-template-columns: 30% 30% 30%;
+  }
 `;
