@@ -60,7 +60,7 @@ export default function Home() {
     const [timer, setTimer] = useState('00:00:00');
     const [timer2, setTimer2] = useState('00:00:00');
 
-    const [startGameCount, setStartGameCount] = useState(5)
+    const [startGameCount, setStartGameCount] = useState(3)
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -112,6 +112,7 @@ export default function Home() {
   useEffect(() => {
     if (timer === '00:00' ){
       setOpen(true)
+      window.location.href = "/"
     }
   }, [timer]);
 
@@ -129,7 +130,9 @@ export default function Home() {
   useEffect(
     () => {
       if (matchedPairs === cards.length / 2 && cards.length != 0) {
-        setGameWon(true);
+        setGameWon(true)
+        window.location.href = "/"
+
       }else{
         setGameWon(false);
       }
@@ -194,7 +197,7 @@ export default function Home() {
     }, 1000);
 
     setClickedCard(undefined);
-  };  
+  };
 
   // verificar se todas as cartas foram encontras
 
@@ -225,7 +228,7 @@ export default function Home() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <h1>{startGameCount}</h1>
+        <h1 style={{color:'white', fontSize:'50px', fontFamily: 'Khula'}}>{startGameCount}</h1>
       </Modal>
 
       <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
@@ -238,7 +241,7 @@ export default function Home() {
         <p>{gameWon}</p>
         <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>PARABÉNS!</h1>
         <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
-        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        <Image src='/assets/imgs/logo2.png' width={200} height={150}/>
         </div>
       </Modal>
 
@@ -252,7 +255,7 @@ export default function Home() {
         <p>{gameWon}</p>
         <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>TEMPO ESGOTADO!</h1>
         <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}> VOLTE AMANHÃ </p>
-        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
+        <Image src='/assets/imgs/logo2.png' width={200} height={150}/>
         </div>
       </Modal>
 
