@@ -60,7 +60,7 @@ export default function Home() {
     const [timer, setTimer] = useState('00:00:00');
     const [timer2, setTimer2] = useState('00:00:00');
 
-    const [startGameCount, setStartGameCount] = useState(3)
+    const [startGameCount, setStartGameCount] = useState(5)
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -97,7 +97,7 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 40);
+        deadline.setSeconds(deadline.getSeconds() + 5);
         return deadline;
     }
 
@@ -224,14 +224,14 @@ export default function Home() {
           </CardsContainer>
         </Container>
 
-        {/* <Button onClick={handleOpen}>Open modal</Button> */}
+         {/* <Button onClick={handleOpen}>Open modal</Button>  */}
       <Modal style={{border: 'none', outline: 'transparent', display: 'flex', justifyContent:'center'}}
         open={startGameCount>=0}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <h1 style={{color:'white', fontSize:'50px', fontFamily: 'Khula'}}>{startGameCount}</h1>
+        <h1 style={{color:'white', fontSize:'70px', fontFamily: 'Khula'}}>{startGameCount}</h1>
       </Modal>
 
       <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
@@ -244,7 +244,7 @@ export default function Home() {
         <p>{gameWon}</p>
         <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>PARABÉNS!</h1>
         <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}>VOCE É UM ESPECIALISTA</p>
-        <Image src='/assets/imgs/logo2.png' width={200} height={150}/>
+        <Image src='/assets/imgs/logo2.png' width={500} height={300}/>
         </div>
       </Modal>
 
@@ -258,7 +258,7 @@ export default function Home() {
         <p>{gameWon}</p>
         <h1 style={{color:'#001990', fontSize:'35px', fontWeight: '800', marginLeft:'0', }}>TEMPO ESGOTADO!</h1>
         <p style={{color:'#001990', fontSize:'15px', fontWeight: '800', marginLeft:'-50px', whiteSpace: 'nowrap', marginTop:'-20px' }}> VOLTE AMANHÃ </p>
-        <Image src='/assets/imgs/logo2.png' width={200} height={150}/>
+        <Image src='/assets/imgs/logo2.png' width={200} height={120}/>
         </div>
       </Modal>
 

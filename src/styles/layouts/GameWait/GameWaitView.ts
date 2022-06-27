@@ -36,6 +36,7 @@ export const GameWaitView = styled.main`
 
   .title{
     position:relative;
+
   }
 
   .clock{
@@ -156,11 +157,12 @@ export const CardsContainer = styled.div`
   max-height: 90vh;
   min-height: 90vh;
 
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 30% 30% 50%;
 
   margin-top: -50px;
 
   @media only screen and (min-height: 1920px) {
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: 34% 34% 36%;
+    overflow: hidden;
   }
 `;

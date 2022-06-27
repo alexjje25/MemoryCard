@@ -14,7 +14,7 @@ export const CheckoutCpfView = styled.main`
     height: 100px;
   }
 
-  .btn{
+  /* .btn{
     position: relative;
     width: 58%;
     height: 68px;
@@ -30,7 +30,7 @@ export const CheckoutCpfView = styled.main`
     :hover{
       background: linear-gradient(rgba(28, 136, 248, 1), rgba(55, 109, 168, 1));
     }
-  }
+  } */
 
   .main{
     display: flex;
@@ -42,7 +42,7 @@ export const CheckoutCpfView = styled.main`
 
   .title{
     position:relative;
-    font-size: 26px;
+    font-size: 45px;
     color: rgba(55, 109, 168, 1);
     text-align: center;
     margin-top:-100px;
@@ -56,15 +56,15 @@ export const CheckoutCpfView = styled.main`
 
   .btn{
     width: 70%;
-    height:100%;
-    min-height: 4rem;
+    height:10px;
+
     border-radius: 8px;
     background: rgb(2,0,36);
     background: linear-gradient(90deg, #294A9B 0%,rgba(28, 136, 248, 1) 35%, rgba(100, 136, 248, 1) 100%);
       border-radius: 0px 40px 0px 30px;
     font-family: 'Nunito Sans';
     font-weight: 600;
-    font-size: calc(99.98% + 10px);
+    font-size: 40px;
     line-height: 44px;
     text-align: center;
     border: none;
