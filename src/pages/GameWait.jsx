@@ -51,7 +51,7 @@ export default function Home() {
     undefined
   );
 
-      // We need ref in this, because we are dealing
+    // We need ref in this, because we are dealing
     // with JS setInterval to keep track of it and
     // stop it when needed
     const Ref = useRef(null);
@@ -60,7 +60,7 @@ export default function Home() {
     const [timer, setTimer] = useState('00:00:00');
     const [timer2, setTimer2] = useState('00:00:00');
 
-    const [startGameCount, setStartGameCount] = useState(3)
+    const [startGameCount, setStartGameCount] = useState(5)
 
     const getTimeRemaining = (e) => {
         const total = Date.parse(e) - Date.parse(new Date());
@@ -84,8 +84,6 @@ export default function Home() {
         }
     }
 
-
-
     const clearTimer = (e) => {
         setTimer('00:40');
 
@@ -103,36 +101,30 @@ export default function Home() {
         return deadline;
     }
 
-    function startGame() {
-      setTimeout(() => {
+  useEffect(() => {
+    setTimeout(() => {
+      if (startGameCount>=0) {
         setStartGameCount(startGameCount -  1)
-
-      }, 1000);
-    }
-console.log(startGameCount)
-
-    useEffect(() => {
-     startGame()
+      }
+    }, 1000);
   }, [startGameCount]);
 
-
-
-      useEffect(() => {
-        if (timer === '00:00' ){
-          setOpen(true)
-        }
-    }, [timer]);
-
-
-    useEffect(() => {
-        clearTimer(getDeadTime());
-    }, []);
-
-    const onClickReset = () => {
-        clearTimer(getDeadTime());
+  useEffect(() => {
+    if (timer === '00:00' ){
+      setOpen(true)
     }
+  }, [timer]);
 
+  useEffect(() => {
+    console.log(startGameCount)
+    if (startGameCount<=0) {
+      clearTimer(getDeadTime());
+    }
+  }, [startGameCount]);
 
+  const onClickReset = () => {
+    clearTimer(getDeadTime());
+  }
 
   useEffect(
     () => {
@@ -202,7 +194,7 @@ console.log(startGameCount)
     }, 1000);
 
     setClickedCard(undefined);
-  };
+  };  
 
   // verificar se todas as cartas foram encontras
 
@@ -215,19 +207,27 @@ console.log(startGameCount)
           <div className='ContainerClock'>
               <Image src='/assets/imgs/clock.svg' width={200} height={150} className='clock' />
               <p className='clockMinutes'>{timer}</p>
-              <p>{startGameCount}</p>
           </div>
             {gameWon &&
               <div>voce ganhou</div>
             }
           <CardsContainer>
             {cards.map(card =>
-              <Card key={card.id} callback={handleCardClick} card={card} />
+              <Card key={card.id} callback={handleCardClick} card={card} virado={startGameCount}/>
             )}
           </CardsContainer>
         </Container>
 
         {/* <Button onClick={handleOpen}>Open modal</Button> */}
+      <Modal style={{border: 'none', outline: 'transparent', display: 'flex', justifyContent:'center'}}
+        open={startGameCount>=0}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <h1>{startGameCount}</h1>
+      </Modal>
+
       <Modal style={{border: 'none', outline: 0, display: 'flex', justifyContent:'center'}} BackdropProps={{ style: {backgroundColor: "hsla(160,90%,220%,0.7)", border: 'none', outline:'0'}}}
         open={gameWon}
         onClose={handleClose}
