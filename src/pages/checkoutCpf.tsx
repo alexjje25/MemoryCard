@@ -92,6 +92,7 @@ export default function Home() {
   return (
       <CpfView>
         <Snackbar
+        sx={{marginTop:'-50px'}}
           open={openSnackError}
           autoHideDuration={4000}
           onClose={handleCloseSnack}
@@ -101,13 +102,13 @@ export default function Home() {
             severity="error"
             sx={{ width: '100%' }}
           >
-            já cadastrado!
+            Este CPF já participou da Ação, volte amanha!
           </Alert>
         </Snackbar>
         <Image src='/assets/fundoCpf.png' layout="fill" className='image' />
         <div className='main'>
         <p style={{fontSize:'40px'}} className='title'>POR FAVOR, INFORME SEU CPF</p>
-        <TextField sx={{background:'#e8e3e3', border: 'none', width:'100%' }} id="outlined-basic" onChange={value => setCpf(value.target.value)} variant="outlined" />
+        <TextField  inputProps={{style: {fontSize: 40}}} sx={{background:'#e8e3e3', border: 'none', width:'100%',  }} id="outlined-basic" onChange={value => setCpf(value.target.value)} variant="outlined" />
         <ul>
           {
             // db.data.map((value, index) => {
