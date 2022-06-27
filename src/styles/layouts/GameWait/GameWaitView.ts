@@ -36,6 +36,7 @@ export const GameWaitView = styled.main`
 
   .title{
     position:relative;
+
   }
 
   .clock{
