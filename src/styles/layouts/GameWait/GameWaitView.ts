@@ -141,6 +141,6 @@ export const Button = styled.button`
 export const CardsContainer = styled.div`
   display: grid;
 
-  grid-template-columns: 113px 113px 130px;
+  grid-template-columns: 33% 33% 33%;
 
 `;

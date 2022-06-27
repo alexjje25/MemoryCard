@@ -55,6 +55,15 @@ export const HomeView = styled.main`
     margin-top: 16rem;
     width:100%;
   }
+
+  @media only screen and (min-width: 1000px) {
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 850px;
+
+}
   .title{
     background-color: red;
     font-size: 26px;
