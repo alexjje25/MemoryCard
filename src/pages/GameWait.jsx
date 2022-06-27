@@ -110,10 +110,12 @@ export default function Home() {
   }, [startGameCount]);
 
   useEffect(() => {
-    if (timer === '00:00' ){
-      setOpen(true)
-      window.location.href = "/"
-    }
+    setTimeout(() => {
+      if (timer === '00:00' ){
+        setOpen(true)
+        window.location.href = "/"
+      }
+    }, 5000);
   }, [timer]);
 
   useEffect(() => {

@@ -5,13 +5,19 @@ export const GameWaitView = styled.main`
   align-items: center;
   justify-content: center;
 
+  section {
+    width: 100%;
+    height: 100%;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .image{
     width:1180px;
     height:1920px;
     background-size: cover;
-
   }
   /* .logo{
     width:809px;
@@ -61,17 +67,19 @@ export const GameWaitView = styled.main`
     bottom: 0;
     margin-left: 78px;
     transform: translateY(calc(6px));
-
-
-
-
   }
-
-
 `;
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  background-color: red;
 `;
 
 // export const LogoContainer = styled.div`
@@ -140,7 +148,20 @@ export const Button = styled.button`
 
 export const CardsContainer = styled.div`
   display: grid;
+  justify-content: center;
+  align-items: center;
 
-  grid-template-columns: 33% 33% 33%;
+  max-width: 100vw;
 
+  max-height: 90vh;
+  min-height: 90vh;
+
+  grid-template-columns: 30% 30% 50%;
+
+  margin-top: -50px;
+
+  @media only screen and (min-height: 1920px) {
+    grid-template-columns: 34% 34% 36%;
+    overflow: hidden;
+  }
 `;
