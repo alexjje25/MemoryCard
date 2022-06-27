@@ -6,7 +6,8 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 // Alternativamente:
 // importa Lottie from 'react-lottie-player/dist/LottiePlayerLight'
-
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
 
 export default function Home() {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,6 +30,9 @@ export default function Home() {
           <button data-aos="fade-right" onClick={() => router.push('/checkoutCpf')} className='btn'>
           <p className='btntitle'>JOGO DA MEMÓRIA</p> </button>
         </div>
+
+
+
       </HomeView>
     )
 }
