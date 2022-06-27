@@ -48,8 +48,7 @@ export const GameWaitView = styled.main`
     font-weight: 700;
   }
   .footer{
-
-    justify-self: center;
+    margin-left: -70px;
 
     position:absolute;
 
@@ -60,8 +59,8 @@ export const GameWaitView = styled.main`
     justify-content: center;
     position: fixed;
     bottom: 0;
-    margin-left: 93px;
-    transform: translateY(calc(5px));
+    margin-left: 78px;
+    transform: translateY(calc(6px));
 
 
 
@@ -142,6 +141,6 @@ export const Button = styled.button`
 export const CardsContainer = styled.div`
   display: grid;
 
-  grid-template-columns: 105px 105px 130px;
+  grid-template-columns: 113px 113px 130px;
 
 `;
