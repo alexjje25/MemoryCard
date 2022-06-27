@@ -1,21 +1,18 @@
 import styled from "styled-components";
 
 export const HomeView = styled.main`
-  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 
-  .image{
-    width:1080px;
-    height:1920px;
-    margin-left: 10px;
-    background-size: cover;
-
-  }
   .logo{
     width:600px;
     height: 100px;
     margin-top: -90px;
-
   }
+
   .btn{
     width: 70%;
   height: 60px;
@@ -52,8 +49,8 @@ export const HomeView = styled.main`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 16rem;
-    width:100%;
+    width: 100%;
+    height: 100vh;
   }
   .title{
     background-color: red;
@@ -79,7 +76,13 @@ export const HomeView = styled.main`
 
 
   .lomotif{
-    position: fixed;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+  }
 `;
