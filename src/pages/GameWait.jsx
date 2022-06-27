@@ -57,8 +57,8 @@ export default function Home() {
     const Ref = useRef(null);
 
     // The state for our timer
-    const [timer, setTimer] = useState('00:00:00');
-    const [timer2, setTimer2] = useState('00:00:00');
+    const [timer, setTimer] = useState('00:00');
+    const [timer2, setTimer2] = useState('00:00');
 
     const [startGameCount, setStartGameCount] = useState(5)
 
@@ -78,14 +78,13 @@ export default function Home() {
         if (total >= 0) {
 
             setTimer(
-                (minutes > 9 ? minutes : '0' + minutes) + ':'
-                + (seconds > 9 ? seconds : '0' + seconds)
+              (seconds > 9 ? seconds : '0' + seconds)
             )
         }
     }
 
     const clearTimer = (e) => {
-        setTimer('00:40');
+        setTimer('40');
 
         if (Ref.current) clearInterval(Ref.current);
         const id = setInterval(() => {
@@ -97,7 +96,7 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 5);
+        deadline.setSeconds(deadline.getSeconds() + 40);
         return deadline;
     }
 
@@ -110,7 +109,7 @@ export default function Home() {
   }, [startGameCount]);
 
   useEffect(() => {
-    if (timer === '00:00' ){
+    if (timer === '00' ){
       setOpen(true)
       setTimeout(() => {
         window.location.href = "/"
