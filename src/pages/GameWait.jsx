@@ -97,7 +97,7 @@ export default function Home() {
     const getDeadTime = () => {
         const deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 5);
+        deadline.setSeconds(deadline.getSeconds() + 40);
         return deadline;
     }
 
