@@ -110,12 +110,12 @@ export default function Home() {
   }, [startGameCount]);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (timer === '00:00' ){
-        setOpen(true)
+    if (timer === '00:00' ){
+      setOpen(true)
+      setTimeout(() => {
         window.location.href = "/"
-      }
-    }, 5000);
+      }, 5000);
+    }
   }, [timer]);
 
   useEffect(() => {
@@ -133,9 +133,10 @@ export default function Home() {
     () => {
       if (matchedPairs === cards.length / 2 && cards.length != 0) {
         setGameWon(true)
-        window.location.href = "/"
-
-      }else{
+        setTimeout(() => {
+          window.location.href = "/"
+        }, 5000);
+      } else {
         setGameWon(false);
       }
     },

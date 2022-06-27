@@ -54,6 +54,7 @@ export const CpfView = styled.main`
     color: rgba(55, 109, 168, 1);
     text-align: center;
     margin-top: -100px;
-    font-weight: 800;
+    font-weight: 900;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
 `;
